@@ -6,6 +6,15 @@ public class HealthCollectable : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("object that entered the trigger is:" + other);
+        RubyController controller = other.GetComponent<RubyController>();
+        if (controller != null)
+        {
+            if (controller.health < controller.maxHealth) 
+            {
+                controller.ChangeHealth(1);
+                Destroy(gameObject);
+            }
+        
+        }
     }
 }
