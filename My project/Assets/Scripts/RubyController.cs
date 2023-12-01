@@ -59,6 +59,10 @@ public class RubyController : MonoBehaviour
                 isInvincible = false;
             }
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
+        }
     }
      void FixedUpdate()
     {
@@ -92,6 +96,9 @@ public class RubyController : MonoBehaviour
 
         Projectlie projectile = projectileObject.GetComponent<Projectlie>();
         projectile.Launch(lookDirection, 300);
+
+
+        animator.SetTrigger("Launch");
     }
 
 
